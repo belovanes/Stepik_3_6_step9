@@ -19,6 +19,7 @@ def browser(request):
     myprint(f'Using {browser_name} browser')
     myprint(f'User language {user_language}')
     browser = None
+
     if (browser_name == "chrome") or (browser_name == "hchrome"):
         myprint("start chrome browser for test")
         options = webdriver.ChromeOptions()
@@ -28,6 +29,7 @@ def browser(request):
         options.add_experimental_option('excludeSwitches', ['enable-logging'])  # отключаем вывод дополнительной информации в лог
         options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
         browser = webdriver.Chrome(options=options)
+
     elif browser_name == "firefox":
         myprint("start firefox browser for test")
         fp = webdriver.FirefoxProfile()
